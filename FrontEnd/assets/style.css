@@ -23,29 +23,36 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
 /** end reset css**/
 body {
 	max-width: 1140px;
@@ -53,11 +60,13 @@ body {
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 }
+
 header {
 	display: flex;
 	justify-content: space-between;
 	margin: 50px 0
 }
+
 section {
 	margin: 50px 0
 }
@@ -84,12 +93,14 @@ h2{
 	font-size: 30px;
 	color: #1D6154
 }
+
 nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
 
 }
+
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
@@ -98,13 +109,16 @@ nav li {
 li:hover {
 	color: #B1663C;
 }
+
 #introduction {
 	display: flex;
 	align-items: center;
 }
+
 #introduction figure {
 	flex: 1
 }
+
 #introduction img {
 	display: block;
 	margin: auto;
@@ -114,6 +128,7 @@ li:hover {
 #introduction article {
 	flex: 1
 }
+
 #introduction h2 {
 	margin-bottom: 1em;
 }
@@ -121,10 +136,41 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
+
 #portfolio h2 {
 	text-align: center;
-	margin-bottom: 1em;
+	margin-bottom: 50px;
 }
+
+ /* Bouttons du filtre */
+.filtres {
+	display: flex;
+	margin-bottom: 50px;
+	gap:10px;
+	width: 585px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Style de chaque boutton du filtre */
+.boutton-filtre {
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+	font-size: 16px;
+	background-color: inherit;
+	color: #1D6154;
+	font-family: 'Syne';
+	font-weight: 700;
+	height: 38px;
+	min-width: 100px;
+	flex-grow: 1;
+}
+
+.boutton-filtre:focus {
+	color: white;
+	background-color: #1D6154;
+}
+
 .gallery {
 	width: 100%;
 	display: grid;
@@ -137,17 +183,20 @@ li:hover {
 	width: 100%;
 
 }
+
 #contact {
 	width: 50%;
 margin: auto;
 }
+
 #contact > * {
 	text-align: center;
-
 }
+
 #contact h2{
 	margin-bottom: 20px;
 }
+
 #contact form {
 	text-align: left;
 	margin-top:30px;
@@ -161,9 +210,11 @@ margin: auto;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+
 #contact label {
 	margin: 2em 0 1em 0;
 }
+
 #contact textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
