@@ -55,16 +55,24 @@ table {
 
 /** end reset css**/
 body {
-	max-width: 1140px;
+	max-width: 1440px;
 	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
+	background-color: #FFFEF8;
 }
 
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0
+	margin: 50px 0;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 1140px;
+}
+
+main {
+	padding: 0 245px;
 }
 
 section {
@@ -113,6 +121,7 @@ li:hover {
 #introduction {
 	display: flex;
 	align-items: center;
+	margin: 139px 0;
 }
 
 #introduction figure {
@@ -122,11 +131,12 @@ li:hover {
 #introduction img {
 	display: block;
 	margin: auto;
-	width: 80%;
+	width: 474px;
 }
 
 #introduction article {
-	flex: 1
+	flex: 1;
+	margin-left: 72px;
 }
 
 #introduction h2 {
@@ -153,7 +163,7 @@ li:hover {
 }
 
 /* Style de chaque boutton du filtre */
-.boutton-filtre {
+.bouton-filtre {
 	border: 1px solid #1D6154;
 	border-radius: 60px;
 	font-size: 16px;
@@ -166,7 +176,7 @@ li:hover {
 	flex-grow: 1;
 }
 
-.boutton-filtre:focus {
+.bouton-filtre:focus {
 	color: white;
 	background-color: #1D6154;
 }
@@ -231,9 +241,22 @@ input[type="submit"]{
 	border-radius: 60px ;
 }
 
+footer {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	background-color: white;
+	margin-top: 11.4px;
+	height: 60px;
+}
+
+footer nav {
+	margin-right: 107px;
+}
+
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	align-items: center;
+	margin: 0;
 }
-
