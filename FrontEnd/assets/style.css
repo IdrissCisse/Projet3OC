@@ -163,6 +163,7 @@ li:hover {
 }
 
 /* Style de chaque boutton du filtre */
+
 .bouton-filtre {
 	border: 1px solid #1D6154;
 	border-radius: 60px;
@@ -176,7 +177,12 @@ li:hover {
 	flex-grow: 1;
 }
 
-.bouton-filtre:focus {
+.bouton-filtre.focus {
+    color: white;
+    background-color: #1D6154;
+}
+
+.bouton-filtre:focus{
 	color: white;
 	background-color: #1D6154;
 }
