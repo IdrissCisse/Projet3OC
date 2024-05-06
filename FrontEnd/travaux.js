@@ -34,6 +34,7 @@ async function filtrerGalerie() {
     btnTous.classList.add("bouton-filtre");
     filtres.appendChild(btnTous);
 
+    btnTous.click()
     // Afficher tous les travaux au clic du bouton "Tous"
     btnTous.addEventListener("click", async () => {
         await afficherTravaux(travaux);
@@ -53,16 +54,19 @@ async function filtrerGalerie() {
             console.log(travauxFiltres);
         });
     }
-
+    
+    // Fixation du style appliqué à un bouton lors du clic
     const boutonsFiltre = document.querySelectorAll(".bouton-filtre");
     for (const bouton of boutonsFiltre) {
         bouton.addEventListener("click", () => {
             for (const b of boutonsFiltre) {
-                b.classList.remove("focus");
+                b.classList.remove("focus");    // Enleve le focus sur tous les boutons pour eviter une repetition du style au clic
             }
             bouton.classList.add("focus");
         });
     }
+    btnTous.click(); // Active par defaut le bouton "Tous" lors du chargement de la page
+
 }
 
 filtrerGalerie();
