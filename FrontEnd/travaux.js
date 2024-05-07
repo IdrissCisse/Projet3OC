@@ -15,7 +15,6 @@ async function afficherTravaux(travauxFiltres) {
         galerie.appendChild(figure);
     }
 }
-
 afficherTravaux(travaux);
 
 // Fonction pour les filtres de la galerie 
@@ -34,7 +33,6 @@ async function filtrerGalerie() {
     btnTous.classList.add("bouton-filtre");
     filtres.appendChild(btnTous);
 
-    btnTous.click()
     // Afficher tous les travaux au clic du bouton "Tous"
     btnTous.addEventListener("click", async () => {
         await afficherTravaux(travaux);
@@ -64,9 +62,7 @@ async function filtrerGalerie() {
             }
             bouton.classList.add("focus");
         });
-    }
+    };
     btnTous.click(); // Active par defaut le bouton "Tous" lors du chargement de la page
-
 }
-
 filtrerGalerie();
