@@ -199,12 +199,11 @@ li img {
 
 .gallery img {
 	width: 100%;
-
 }
 
 #contact {
 	width: 50%;
-margin: auto;
+    margin: auto;
 }
 
 #contact > * {
@@ -269,7 +268,7 @@ footer nav ul {
 	margin: 0;
 }
 
-/****** Section Page Login *******/
+/********** Section Page Login ***********/
 
 .login-section {
 	display: flex;
@@ -326,4 +325,23 @@ footer nav ul {
 	text-decoration: underline;
 	margin-top: 30px;
 	font-weight: 500;
+}
+
+.error-message {
+	display: flex;
+	justify-content: center;
+	justify-content: center;
+	color: white;
+	background-color: rgb(218, 5, 5);
+    margin-top: 15px;
+	border-radius: 5px;
+	padding: 5px;
+	font-weight: 600;
+	display: none;
+}
+
+.fa-circle-exclamation {
+	color : white;
+	margin-right: 10px;
+	margin-left: 5px;
 }
