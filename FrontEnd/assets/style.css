@@ -22,10 +22,6 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
-body {
-	line-height: 1;
-}
-
 ol, ul {
 	list-style: none;
 }
@@ -48,10 +44,11 @@ table {
 /** end reset css**/
 body {
 	max-width: 1440px;
-	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 	background-color: #FFFEF8;
+	line-height: 1;
+	margin: auto;
 }
 
 header {
@@ -151,13 +148,14 @@ li img {
 
 #portfolio h2 {
 	text-align: center;
-	margin-bottom: 50px;
+	
 }
 
  /* Bouttons du filtre */
 .filtres {
 	display: flex;
 	margin-bottom: 50px;
+	margin-top: 50px;
 	gap:10px;
 	width: 585px;
 	margin-left: auto;
@@ -254,6 +252,7 @@ footer {
 	justify-content: flex-end;
 	background-color: white;
 	margin-top: 11.4px;
+	
 	height: 60px;
 }
 
@@ -344,4 +343,37 @@ footer nav ul {
 	color : white;
 	margin-right: 10px;
 	margin-left: 5px;
+}
+
+/*********** Page édition ***********/
+.edition {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	gap: 21px;
+	height: 59px;
+	background-color: #000000;
+	color: white;
+}
+
+.projets-edit-div {
+	display: flex;
+	justify-content:center;
+	align-items: center;
+	margin-bottom: 92px;
+}
+
+.gallery-title {
+	margin-left: 130px;
+	margin-right: 31px;
+}
+
+.projets-edit-div i {
+	margin-right: 11px;
+	color: #000000;
+}
+
+.projets-edit-div p {
+	color: #000000;
 }
