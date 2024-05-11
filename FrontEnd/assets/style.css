@@ -41,6 +41,11 @@ table {
 	border-spacing: 0;
 }
 
+button {
+	background-color: inherit;
+	cursor: pointer;
+}
+
 /** end reset css**/
 body {
 	max-width: 1440px;
@@ -371,9 +376,112 @@ footer nav ul {
 
 .projets-edit-div i {
 	margin-right: 11px;
+}
+
+.projets-edit-div a {
 	color: #000000;
 }
 
-.projets-edit-div p {
-	color: #000000;
+/** Modale test **/
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background:#0000004D;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	display: none;
+}
+
+.modal-wrapper {
+	display: flex;
+	flex-direction: column;
+	width: fit-content;
+	height: 688px;
+	padding: 0 105px;
+	flex-wrap: wrap;
+	align-items: center;
+	background-color: #fff;
+	position: relative;
+}
+
+.close-modal {
+	cursor: pointer;
+	position: absolute;
+	right: 30px;
+	margin-top: 26px;
+}
+
+.fa-xmark {
+	font-size: 20px;
+}
+
+.modal-wrapper h2 {
+	margin-top: 60px;
+	margin-bottom: 46px;
+	font-size: 26px;
+	font-weight: 400;
+	color: #000;
+	font-family: "Work Sans" ;
+}
+
+.travaux-modale {
+	display: flex;
+	width: 430px;
+    row-gap: 29px;
+	column-gap: 9px;
+	flex-wrap: wrap;
+}
+
+.work-container {
+	width: 76.61px;
+	height: 102.57px;
+	position: relative;
+}
+
+.work-container img {
+	width: 100%;
+	height: 100%;
+}
+
+.del-button {
+	position: absolute;
+	top: 6px;
+	right: 6px;
+	padding: 3px;
+	background-color: #000;
+	width: 17px;
+	height: 17px;
+}
+
+.fa-trash-can {
+	font-size: 10px;
+	color: #fff;
+	position:inherit;
+	left: 4px;
+	top: 4px;
+}
+
+.add-work {
+	margin-top: 67.3px;
+	width: 420px;
+	border-top: 1px solid #B3B3B3;
+	display: flex;
+	justify-content: center;
+}
+
+.add-work-btn {
+	margin-top: 38px;
+	width: 237px;
+    height: 36px;
+    border-radius: 60px;
+	background-color: #1D6154;
+	color: #fff;
+	font-weight: 700;
+	font-family: "Syne";
 }
