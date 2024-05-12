@@ -3,7 +3,7 @@ const reponse = await fetch("http://localhost:5678/api/works");
 const travaux = await reponse.json();
 
 // Fonction pour afficher les travaux filtrés
-export async function afficherTravaux(travauxFiltres) {
+async function afficherTravaux(travauxFiltres) {
     const galerie = document.querySelector(".gallery");
     galerie.innerHTML = "";
     for (let travail of travauxFiltres) {
@@ -18,7 +18,7 @@ export async function afficherTravaux(travauxFiltres) {
 afficherTravaux(travaux);
 
 // Fonction pour les filtres de la galerie 
-export async function filtrerGalerie() {
+async function filtrerGalerie() {
     // Récupération des catégories depuis l'API
     const resp = await fetch("http://localhost:5678/api/categories");
     const categories = await resp.json();
