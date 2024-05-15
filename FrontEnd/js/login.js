@@ -22,7 +22,7 @@ document.getElementById("connexion").addEventListener("submit", async function(e
       const token = data.token;
 
       // Enregistre le token dans le local storage pour l'autorisation de manipuler les travaux
-      localStorage.setItem('authToken', token);   
+      localStorage.setItem("authToken", token);   
       window.location.href = "dashboard.html";    // Redirige l'utilisateur vers une autre page en cas de succés
     } else {
         errorMessage.style.display = "block";     // Affiche le message d'erreur en cas d'echec de la connexion
