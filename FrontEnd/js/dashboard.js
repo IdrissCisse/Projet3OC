@@ -10,17 +10,21 @@ async function afficherTravaux() {
     galerie.innerHTML = "";
     for (let travail of travaux) {
         const figure = document.createElement("figure");
+        figure.className = "work-image";
+        figure.id = travail.id;
         figure.innerHTML = `
             <img src="${travail.imageUrl}" alt="${travail.title}">
             <figcaption>${travail.title}</figcaption>
         `;
         galerie.appendChild(figure);
+       
     };
 }
 afficherTravaux();
 
 // Suppression  du token d'authentification lors du logout
 const token = localStorage.getItem("authToken");
+console.log(token)
 const logoutBtn = document.querySelector(".js-logout");
 
 logoutBtn.addEventListener("click", () => {
@@ -175,28 +179,64 @@ function resetImg() {
 function resetSecondView () {
     defaultView();
     resetImg();
-    resetPostButton();
+    postButton.style.backgroundColor = "#A7A7A7";
     selectCategory.value = "";
+    title.value = "";
 }
 
 // Fonction verifiant la presence d'image et de catégorie avant d'activer le bouton de validation
-function resetPostButton () {
-    postButton.style.backgroundColor = "#A7A7A7";
-    postButton.style.pointerEvents = "none";
-}
-
 function postButtonCheck() {
     const catSelect = selectCategory.value;
     const imageBox = document.querySelector(".image-container");
-    const titleValue = title.value.trim(); // Suprrime les espaces vides pour ne prendre en compte que le texte
+    const titleValue = title.value.trim();
 
+    // Suprrime les espaces vides pour ne prendre en compte que le texte
     if (catSelect !== "" && imageBox && titleValue !== "") {
         postButton.style.backgroundColor = "#1D6154";
-        postButton.style.pointerEvents = "auto";
     } else {
-        resetPostButton();
-    }
-}
+        postButton.style.backgroundColor = "#A7A7A7";
+    };
+};
 
 selectCategory.addEventListener("change", postButtonCheck);
-title.addEventListener("input", postButtonCheck)
+title.addEventListener("input", postButtonCheck);
+
+// Requete de suppression des projets
+async function workDeletion (event) {
+    const isConfirmed = confirm("Êtes-vous sûr de vouloir supprimer ce projet ?");
+    if (!isConfirmed) {
+        return; // Si l'utilisateur annule, on arrête la fonction ici
+    };
+
+    const workDelId = event.currentTarget.id;
+    const url = `http://localhost:5678/api/works/${workDelId}`;
+
+    const response = await fetch( url , {
+        method : "DELETE",
+        headers : {
+            "Accept" : "*/*",
+            "Authorization": `Bearer ${token}`
+        }
+    });
+
+    if(response.ok) {
+        const workModalImg = document.getElementById(workDelId);
+        workModalImg.parentNode.remove();
+
+        const projets = document.querySelectorAll(".work-image"); // Supprime en meme temps les projets dans la galerie
+            projets.forEach(projet => {
+                if(projet.id === workDelId) {
+                    projet.parentNode.removeChild(projet);
+                };
+            });
+    };
+};
+
+// Gestion d'evenement pour le clic d'un bouton de suppression de projet
+function delButtonEvent () {
+    const btnDel = document.querySelectorAll(".del-button");
+    btnDel.forEach(btn => {
+        btn.addEventListener("click", workDeletion);
+    });
+};
+delButtonEvent();

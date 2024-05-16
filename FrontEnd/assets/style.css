@@ -590,7 +590,6 @@ footer nav ul {
 	align-self: center;
 	margin-top: 79px;
 	position: relative;
-	pointer-events: none;
 }
 
 .post-btn::before {
@@ -604,3 +603,6 @@ footer nav ul {
 	left: -90px;
 }
 
+.fa-pen-to-square {
+	pointer-events: inherit;
+}
