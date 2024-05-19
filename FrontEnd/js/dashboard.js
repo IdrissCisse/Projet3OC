@@ -57,6 +57,22 @@ async function travauxModale() {
 };
 travauxModale();
 
+// Cache la barre de defilement aprés un certain delai d'inactivité
+let timer; 
+const modalWorks = document.querySelector(".travaux-modale");
+
+function hideScrollbar() {
+    modalWorks.style.overflowY = "hidden"; // Masque la barre de défilement si pas de débordement
+};
+
+function resetTimer() {
+    clearTimeout(timer);
+    modalWorks.style.overflowY = "auto";
+
+    timer = setTimeout(hideScrollbar, 2000); // Masque la barre de défilement après 2 secondes d'inactivité
+};
+modalWorks.addEventListener("mousemove", resetTimer);
+
 // Affichage des categories dans le formulaire d'ajout 
 const selectCategory = document.getElementById("category");
 
@@ -256,7 +272,8 @@ document.querySelector(".add-work-form").addEventListener("submit", async (event
         },
             body: formData
         });
-        
-    alert("Votre travail a été envoyé avec succès!");
+    closeModal();
+    resetSecondView (); // Reinitialise la modale aprés envoi 
+    alert("Votre travail a été ajouté avec succès")
 });
 
