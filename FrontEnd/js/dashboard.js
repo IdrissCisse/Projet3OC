@@ -65,13 +65,12 @@ async function afficherCategories() {
     const categories = await resp.json();
     console.log(categories)
 
-    const categoriesSet = new Set(categories.map(categorie => categorie.name));
-
-    for (const categorieName of categoriesSet) {
+    for (const categorie of categories) {
         const option = document.createElement("option");
-        option.textContent = categorieName;
+        option.textContent = categorie.name;
         option.className = "option-cat";
         selectCategory.appendChild(option);
+        option.value = categorie.id;
     }
 }
 afficherCategories();
@@ -149,11 +148,12 @@ const postButton = document.querySelector(".post-btn");
 const firstOption = document.querySelector(".option1");
 const title = document.getElementById("title");
 
-addButton.addEventListener("click", () => {
+addButton.addEventListener("click", (e) => {
+    e.preventDefault()
     addInput.click();
 }); 
 
-addInput.addEventListener("change", () => {
+addInput.addEventListener("change", ( ) => {
     let image = addInput.files[0];
     if(image) {
         const imageSrc = URL.createObjectURL(image);
@@ -230,7 +230,7 @@ async function workDeletion (event) {
                 };
             });
     };
-};
+    }
 
 // Gestion d'evenement pour le clic d'un bouton de suppression de projet
 function delButtonEvent () {
@@ -240,3 +240,23 @@ function delButtonEvent () {
     });
 };
 delButtonEvent();
+
+// Ajout travaux 
+document.querySelector(".add-work-form").addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+    const url = "http://localhost:5678/api/works";
+
+    const response = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${token}`,
+            "Accept": "application/json",
+        },
+            body: formData
+        });
+        
+    alert("Votre travail a été envoyé avec succès!");
+});
+

@@ -10,6 +10,7 @@
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	
 }
 
 a {
@@ -70,7 +71,8 @@ main {
 }
 
 section {
-	margin: 50px 0
+	margin: 50px 0;
+	height: auto;
 }
 
 h1{
@@ -153,7 +155,6 @@ li img {
 
 #portfolio h2 {
 	text-align: center;
-	
 }
 
  /* Bouttons du filtre */
@@ -452,17 +453,19 @@ footer nav ul {
 	width: 430px;
     row-gap: 29px;
 	column-gap: 9px;
-	flex-wrap: wrap;
+	flex-wrap:wrap;
+	max-height: 366px;
+    overflow-y: auto;
 }
 
 .work-container {
-	width: 76.61px;
+	width: fit-content;
 	height: 102.57px;
 	position: relative;
 }
 
 .work-container img {
-	width: 100%;
+	max-width: 74.61px;
 	height: 100%;
 }
 
@@ -510,6 +513,7 @@ footer nav ul {
 	align-items: center;
 }
 
+ 
 .img-div,
 .img-div-content {
 	display: flex;
@@ -519,12 +523,13 @@ footer nav ul {
 	height: 169px;
 	border-radius: 3px;
 	background-color: #E8F1F6;
+	margin-bottom: 30px;
 }
 
 .fa-image {
 	font-size: 59px;
 	color: #B9C5CC;
-	margin-top: 13px;
+	margin-top: 22.5px;
 }
 
 .add-photo-btn {
@@ -532,8 +537,8 @@ footer nav ul {
     height: 36px;
     border-radius: 50px;
 	background-color: #CBD6DC;
-	margin-top: 6px;
-	margin-bottom: 7px;
+	margin-top: 8px;
+	margin-bottom: 8px;
 	font-weight: 500;
 	color: #306685;
 }
@@ -544,6 +549,7 @@ footer nav ul {
 
 .img-div-content p {
 	font-size: 10px;
+	margin-bottom: 0;
 }
 
 .image-container {
@@ -554,7 +560,6 @@ footer nav ul {
 .add-work-form {
 	display: flex;
 	flex-direction: column;
-	margin-top: 30px;
 }
 
 .add-work-form label {
