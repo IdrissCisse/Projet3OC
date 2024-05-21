@@ -51,7 +51,7 @@ async function filtrerGalerie() {
             await afficherTravaux(travauxFiltres);
             console.log(travauxFiltres);
         });
-    }
+    };
     
     // Fixation du style appliqué à un bouton lors du clic
     const boutonsFiltre = document.querySelectorAll(".bouton-filtre");

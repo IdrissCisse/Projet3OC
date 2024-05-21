@@ -17,14 +17,12 @@ async function afficherTravaux() {
             <figcaption>${travail.title}</figcaption>
         `;
         galerie.appendChild(figure);
-       
     };
 }
 afficherTravaux();
 
 // Suppression  du token d'authentification lors du logout
 const token = localStorage.getItem("authToken");
-console.log(token)
 const logoutBtn = document.querySelector(".js-logout");
 
 logoutBtn.addEventListener("click", () => {
@@ -68,7 +66,6 @@ function hideScrollbar() {
 function resetTimer() {
     clearTimeout(timer);
     modalWorks.style.overflowY = "auto";
-
     timer = setTimeout(hideScrollbar, 2000); // Masque la barre de défilement après 2 secondes d'inactivité
 };
 modalWorks.addEventListener("mousemove", resetTimer);
@@ -79,7 +76,6 @@ const selectCategory = document.getElementById("category");
 async function afficherCategories() {
     const resp = await fetch("http://localhost:5678/api/categories");
     const categories = await resp.json();
-    console.log(categories)
 
     for (const categorie of categories) {
         const option = document.createElement("option");
@@ -87,8 +83,8 @@ async function afficherCategories() {
         option.className = "option-cat";
         selectCategory.appendChild(option);
         option.value = categorie.id;
-    }
-}
+    };
+};
 afficherCategories();
 
 //  MODALE
@@ -99,9 +95,9 @@ const vue2 = document.querySelector(".view-2");
 // Ouverture de la fenêtre 
 const openModal = function(e) {
     e.preventDefault();
-
     const target = document.querySelector(e.target.getAttribute("href"));
     target.style.display ="flex";   // Affiche la modale
+
     modal = target;
     modal.addEventListener("click", closeModal);  
     modal.querySelector(".close-modal").addEventListener("click", closeModal); // Ferme la modale au clic du bouton de sortie
@@ -123,7 +119,6 @@ const closeModal = function(e) {
     modal.querySelectorAll(".modal-stop-prop").forEach(m => {
         m.removeEventListener("click", stopPropagation)
     });
-   
     modal = null;
 }
 
@@ -246,7 +241,7 @@ async function workDeletion (event) {
                 };
             });
     };
-    }
+}
 
 // Gestion d'evenement pour le clic d'un bouton de suppression de projet
 function delButtonEvent () {
@@ -272,8 +267,11 @@ document.querySelector(".add-work-form").addEventListener("submit", async (event
         },
             body: formData
         });
-    closeModal();
-    resetSecondView (); // Reinitialise la modale aprés envoi 
-    alert("Votre travail a été ajouté avec succès")
-});
 
+    const data = await response.json();  //Affiche immediatement dans le DOM le travail ajouté 
+    travaux.push(data);          
+    afficherTravaux(); 
+    travauxModale();
+    resetSecondView();   //Nettoie et ferme la modale aprés ajout d'un travail
+    closeModal();
+});
