@@ -122,10 +122,6 @@ const closeModal = function(e) {
     modal = null;
 }
 
-const stopPropagation = function(e) {     // Empêche l'événement de se propager vers l'élément parent ("clic" dans notre cas)
-    e.stopPropagation();
-}
-
 // Affiche la premiere fenêtre 
 const defaultView = function() {
     vue1.style.display = "flex";
@@ -160,7 +156,7 @@ const firstOption = document.querySelector(".option1");
 const title = document.getElementById("title");
 
 addButton.addEventListener("click", (e) => {
-    e.preventDefault()
+    e.preventDefault();
     addInput.click();
 }); 
 
@@ -174,17 +170,17 @@ addInput.addEventListener("change", ( ) => {
         imgDiv.appendChild(imageBox);
         imgDivContent.style.display = "none";
         postButtonCheck();
-    }
-})
+    };
+});
 
 // Supprime de la page l'image ajoutée s'il ya en une
 function resetImg() {
     const imageBox = document.querySelector(".image-container");
     if (imageBox) {
         imageBox.parentNode.removeChild(imageBox); 
-    }
+    };
     imgDivContent.style.display = "flex";
-}
+};
 
 // Reinitialise  la 2eme vue et affiche la vue 1 en premier  si un bouton de sortie est cliqué 
 function resetSecondView () {
@@ -235,13 +231,13 @@ async function workDeletion (event) {
         workModalImg.parentNode.remove();
 
         const projets = document.querySelectorAll(".work-image"); // Supprime en meme temps les projets dans la galerie
-            projets.forEach(projet => {
-                if(projet.id === workDelId) {
-                    projet.parentNode.removeChild(projet);
-                };
-            });
+        projets.forEach(projet => {
+            if(projet.id === workDelId) {
+                projet.parentNode.removeChild(projet);
+            };
+        });
     };
-}
+};
 
 // Gestion d'evenement pour le clic d'un bouton de suppression de projet
 function delButtonEvent () {
@@ -272,6 +268,7 @@ document.querySelector(".add-work-form").addEventListener("submit", async (event
     travaux.push(data);          
     afficherTravaux(); 
     travauxModale();
-    resetSecondView();   //Nettoie et ferme la modale aprés ajout d'un travail
     closeModal();
+    resetSecondView(); //Nettoie et ferme la modale aprés ajout d'un travail
+    delButtonEvent();
 });

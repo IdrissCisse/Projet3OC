@@ -49,7 +49,6 @@ async function filtrerGalerie() {
         btnFiltre.addEventListener("click", async () => {
             const travauxFiltres = travaux.filter(travail => travail.category.name === categorieName);
             await afficherTravaux(travauxFiltres);
-            console.log(travauxFiltres);
         });
     };
     
